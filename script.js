@@ -6,7 +6,7 @@ let smallfileld;
 let cells;
 let smallCells;
 let timerId;
-let isPaused = false;
+let isPaused = true;
 let isGameOver = false;
 let overlay = document.querySelector(".overlay");
 let btnRestart = document.querySelector(".btn-restart");
@@ -165,7 +165,7 @@ function generateTetromino() {
     drawSmallTetramino()
 
     const columnTetro = Math.floor(PLAYFILED_COLUMNS / 2 - matrix.length / 2); //початкові позиції фігури
-    const rowTetro = -1;
+    const rowTetro = -2;
 
     tetromino = {
         name: nameTetro,
@@ -573,14 +573,6 @@ function dropRowsAbove(rowDelete) {
     };
     playfileld[0] = new Array(PLAYFILED_COLUMNS).fill(0);
 };
-
-
-timerId = setTimeout(function tick() {
-    moveTetraminoDoun()
-    draw();
-    timerId = setTimeout(tick, 800 - speed * 100); // (*)
-}, 800 - speed * 100);
-
 
 function stop() {
 clearTimeout(timerId);
