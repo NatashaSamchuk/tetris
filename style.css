@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    user-select: none;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(180deg,  rgb(71, 181, 254), rgb(183, 226, 255));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+}
+
+.table{
+    margin: 20px 30px 0 0;
+    font-size: 4vh;
+}
+
+.background{
+    background: radial-gradient(rgb(191, 191, 191), grey);
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+    inset 2px 2px 2px grey,
+    inset -2px -2px 2px blue;
+}
+
+span{
+    margin-bottom: 4px;
+}
+
+.speed-change{
+    display: flex;
+}
+
+.speed{
+    padding: 0 3px;
+}
+
+.btn-speed{
+    background-color: rgb(191, 191, 191);
+    border: 1px solid gray;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+.pause, .restart{
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.tetris{
+    border: 5px solid grey;
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+}
+
+.tetris div{
+    height: min(4vh, 7vw);
+    width: min(4vh, 7vw);
+    background: radial-gradient(rgb(191, 191, 191), grey);
+    box-shadow: 
+
+        inset 1px 1px 1px grey,
+        inset -1px -1px 1px blue;
+}
+
+.right-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 20px 0 0 30px;
+    font-size: 4vh;
+}
+
+.tetramino{
+    border: 5px solid grey;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    margin-bottom: 20px;
+    height: 15vh;
+    width: 15vh;
+}
+
+.tetramino div{
+    height: 3vh;
+    width: 3vh;
+    background: radial-gradient(rgb(191, 191, 191), grey);
+    box-shadow: 
+        inset 1px 1px 1px grey,
+        inset -1px -1px 1px blue;
+}
+
+.keyboard{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.keyboard div{
+    margin: 2px;
+}
+
+.keyboard div:nth-child(2n){
+    width: 9vh;
+    text-align: center;
+    background: radial-gradient(rgb(191, 191, 191), grey);
+    padding: 10px;
+    box-shadow: 
+    inset 2px 2px 2px grey,
+    inset -2px -2px 2px blue;
+    border-radius: 15px;
+}
+
+.fall{
+    width: 9vh;
+    text-align: center;
+    background: radial-gradient(rgb(191, 191, 191), grey);
+    padding: 10px;
+    box-shadow: 
+    inset 2px 2px 2px grey,
+    inset -2px -2px 2px blue;
+    border-radius: 15px;
+}
+
+.instruction{
+    text-align: center;
+    background: radial-gradient(rgb(191, 191, 191), grey);
+    padding: 10px;
+    box-shadow: 
+    inset 2px 2px 2px grey,
+    inset -2px -2px 2px blue;
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 18vh;
+    align-self: center;
+}
+
+.overlay, .overlay-instruction{
+    background: rgb(23, 23, 24, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-container{
+    background: rgb(183, 226, 255);
+    padding: 20px;
+    text-align: center;
+    font-size: 4vh;
+    border-radius: 15px;
+}
+
+.game-over{
+    font-size: 5vh;
+    color: red;
+}
+
+.btn-restart{
+    width: 200px;
+    height: 120px;
+    font-size: 40px;
+    border-radius: 15px;
+    background: rgb(71, 181, 254);
+    margin-top: 20px;
+    border: 1px solid rgb(71, 181, 254);
+    cursor: pointer;
+}
+
+.container-new-record{
+    display: none;
+    font-size: 5vh;
+    color: red;
+}
+
+.overlay-instruction{
+    display: none;
+}
+
+.overlay-instruction span{
+    font-weight: 600;
+}
+
+.overlay-instruction h1{
+    font-size: 23px;
+    margin: 10px 0;
+}
+
+.overlay-instruction a{
+    color: black;
+}
+
+.overlay-instruction > div{
+    background-color: lightblue;
+    height: 80%;
+    width: 50%;
+    overflow-y: auto;
+    padding: 10px 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-instruction div > div{
+    margin-right: 30px;
+}
+
+.btn-instruction{
+    position: fixed;
+    align-self: flex-end;
+    margin-right: 5px;
+    border: 1px solid  rgb(71, 181, 254);
+}
+
+.tetris .point, .tetramino .point{
+    background: brown;
+}
+
+.tetris .L, .tetramino .L{
+    background: blue;
+}
+
+.tetris .J, .tetramino .J{
+    background: orange;
+}
+
+.tetris .I, .tetramino .I{
+    background: rgb(0, 255, 234);
+}
+
+.tetris .Z, .tetramino .Z{
+    background: red;
+}
+
+.tetris .S, .tetramino .S{
+    background: green;
+}
+
+.tetris .T2, .tetramino .T2{
+    background: rgb(1, 177, 253);
+}
+
+.tetris .T, .tetramino .T{
+    background: rgb(153, 0, 254);
+}
+
+.tetris .plus, .tetramino .plus{
+    background: rgb(255, 80, 243);
+}
+
+.tetris .O, .tetramino .O{
+    background: yellow;
+}
+
+.tetris .r, .tetramino .r{
+    background: rgb(34, 205, 57);
+}
+
+.tetris .p, .tetramino .p{
+    background: rgb(255, 78, 13);
+}

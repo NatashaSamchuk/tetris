@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="table">
+            <div class="background">
+                <div>Record</div>
+                <div class="record"></div>
+            </div>
+
+            <div class="background">
+                <span>Speed</span>
+                <div class="speed-change">
+                    <button class="btn-speed speed-reduction">&lt</button>
+                    <div class="speed">0</div>
+                    <button class="btn-speed speed-increase">&gt</button>
+                </div>
+            </div>
+
+            <div class="background">
+                <span>Score</span>
+                <div class="score">000</div>
+            </div>
+    
+            <div class="pause background">Pause</div>
+            <div class="restart background">Restart</div>
+    
+        </div>
+
+        <div class="tetris">
+
+        </div>
+
+        <div class="right-container">
+            <div class="tetramino">
+        
+            </div>
+
+            <div class="keyboard">
+                <div></div>
+                <div class="rotate">rotate</div>
+                <div></div>
+                <div class="left">left</div>
+                <div class="fall">fall</div>
+                <div class="right">right</div>
+                <div></div>
+                <div class="down">down</div>
+                <div></div>
+            </div>
+
+            <div class="instruction">Instruction</div>
+        </div>
+    
+    </div>
+
+    <div class="overlay">
+        <div class="overlay-container">
+            <div class="game-over">Game over</div>
+            <div class="container-score">Score <span class="game-over-score"></span></div>
+            <div class="container-new-record">Congratulations! <br> A new record <span class="new-record"></span> points</div>
+            <div><span class="game-over-number"></span> games played</div>
+            <div class="container-record">Record <span class="game-over-record"></span> points</div>
+            <button class="btn-restart">Try again</button>
+        </div>
+    </div>
+
+    <div class="overlay-instruction">
+        <div>
+            <button class="btn-instruction">&#10008;</button>
+            <h1>Правила</h1>
+            <div>Випадкові фігурки тетраміно падають зверху в прямокутний стакан шириною 10 і висотою 20 клітин. У польоті гравець може повертати фігурку та рухати її по горизонталі. Також можна «скидати» фігурку, тобто прискорювати її падіння, коли вже вирішено, куди фігурка повинна впасти. Фігурка летить, поки не наткнеться на іншу фігурку або на дно склянки. Якщо при цьому заповнився горизонтальний ряд з 10 кліток, він пропадає і все, що вище нього, опускається на одну клітку.
+
+            У спеціальному полі гравець бачить фігурку, яка буде слідувати після поточної — ця підказка дозволяє планувати свої дії. Темп гри поступово збільшується. Гра закінчується, коли нова фігурка не може поміститися в стакан. Гравець отримує бали за кожен, тому його задача — заповнювати ряди, не заповнюючи саму склянку якомога довше, щоб таким чином отримати якомога більше балів.</div>
+            <h1>Керування грою</h1>
+            <div>Управляти грою можна як клавіатурою, так і мишкою. <br>
+            Для управління <span>клавіатурою</span> використовуються наступні клавіши: <br>
+            <span>стрілочки право та ліво</span> - пересування фігури на одну клітинку відповідно в право та ліво; <br>
+            <span>стрілочка вниз</span> - пересування фігури на одну клітинку вниз; <br>
+            <span>стрілочка вгору</span> - перевертання фігури за часовою стрілкою;<br>
+            <span>пробіл</span> - різке "падіння" фігури вниз; <br>
+            <span>esc</span> - гра стає на паузу, при повторному натисканні знову запускається.<br>
+            Для управління <span>мишкою</span>: <br>
+            <span>right та left</span> - пересування фігури на одну клітинку відповідно в право та ліво; <br>
+            <span>down</span> - пересування фігури на одну клітинку вниз; <br>
+            <span>rotate</span> - перевертання фігури за часовою стрілкою;<br>
+            <span>fall</span> - різке "падіння" фігури вниз; <br>
+            <span>pause/start</span> - гра стає на паузу, при повторному натисканні знову запускається.<br>
+            <span>restart </span> - гра починається з початку.<br>
+            На панелі також можна відсідковувати: <br>
+            <span>record</span> - максимальну кількість балів за останню сесію ігор <br>
+            <span>speed</span> - швидкість гри, яка приймає значення від 0 до 5. Швидкість можна збільшувати на будь-якому етапі гри, а зменьшувати лише до заповнення першого ряду. Також швидкість гри прискорюється при набиранні певної кількості балів (<a href="#speed-change">детальніше тут</a>);<br>
+            <span>score</span> - кількіть набраних балів за поточну гру (<a href="#scoring">правила нарахування можна подивитися нижче</a>).
+            </div>
+            <h1 id="scoring">Нарахування балів</h1>
+            <div>При заповненні рядів, за один хід, нараховуються бали:<br>
+                1 - за 1 зібраний ряд;<br>
+                3 - за 2 зібраних ряди;<br>
+                5 - за 3 зібраних ряди;<br>
+                7 - за 4 зібраних ряди.
+            </div>
+            <h1 id="speed-change">Зміна швидкості</h1>
+            <div>Швидкість гри може приймати значення від 0 до 5. ЇЇ можна змінити самостійно: збільшити на будь-якому етапі гри, а зменьшити леше до того як буде зібрано хочаб один ряд, оскільки швидкість буде автоматично збільшуватися при досягнені успіхів. Як тільки буде набрано 10 балів, швидкіть збільшиться на 1. І так кожні 10 балів. Наприклад, якщо на початку гри було втановлено швидкість 2, то при здобутті 10 балів, швидкість стане 3. Через 10 балів швидкість стане 4 і так далі, поки швидкіть не дістане максимального значення - 5.</div>
+            <h1>Кінець гри</h1>
+            <div>Як тільки настає ситуація, коли наступна фігура не вміщується в ігровий "стакан", гра закінчується та підводяться підсумки: кількість набраних балів у поточній грі, кількість зіграних ігор та рекордне значення балів за поточну сесію ігор.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
